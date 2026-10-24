@@ -1,124 +1,118 @@
 <div align="center">
 
-  <img src="https://xprtix.com/favicon.svg" alt="XPRTIX Logo" width="80" height="80" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/xprtix-logo-white.svg">
+  <img src="assets/xprtix-logo-ink.svg" alt="XPRTIX" width="320">
+</picture>
 
-  # XPRTIX
+**Every file, export-ready.**
 
-  **In-Browser Media Utilities & SVG Editor for Creative Engineering**
+Free video, image and SVG tools that run in your browser. Your files never leave your device.
 
-  *Every file, export-ready. 100% private, client-side, WebAssembly-powered.*
-
-  [![Website](https://img.shields.io/badge/Website-xprtix.com-151515?style=for-the-badge&logo=googlechrome&logoColor=white)](https://xprtix.com)
-  [![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#-license)
-  [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Local-success?style=for-the-badge)](https://xprtix.com/privacy)
-  [![X (Twitter)](https://img.shields.io/badge/X-%40xprtix-black?style=for-the-badge&logo=x)](https://x.com/xprtix)
+[![xprtix.com](https://img.shields.io/badge/xprtix.com-151515?style=flat-square)](https://xprtix.com)
+[![Free, no account](https://img.shields.io/badge/free-no%20account-A04747?style=flat-square)](https://xprtix.com/about)
+[![Privacy](https://img.shields.io/badge/files-never%20uploaded-151515?style=flat-square)](https://xprtix.com/privacy)
+[![@xprtix](https://img.shields.io/badge/%40xprtix-151515?style=flat-square&logo=x)](https://x.com/xprtix)
 
 </div>
 
 ---
 
-## ⚡ Overview
+## What it is
 
-**XPRTIX** is a zero-framework, privacy-first web utility suite built for developers, designers, and privacy-conscious creators. It eliminates heavy desktop vector software and slow server-based video converters by running low-latency media processing directly in your browser.
+XPRTIX is a set of focused tools for developers, UI designers and creators. Each one takes a file in and hands back one that works. Everything runs in the browser: no upload, no account, no watermark.
 
-No file uploads for local tasks. No accounts. No watermarks. No file size limits for client-side processing.
-
----
-
-## 🛠️ Included Tool Modules
-
-### 🎨 1. In-Browser SVG Vector Editor (`xprtix.com/svg`)
-A full-screen, multi-artboard vector workstation running entirely in vanilla JavaScript and the DOM.
-* **Path & Node Editing:** Pen tool, node/anchor point reshaping, control points, and multi-path manipulation.
-* **Shape & Boolean Operations:** Powered by Paper.js for boolean union, subtract, intersection, stroke outlining, and path simplification.
-* **Full Workstation Features:** Multi-artboard document tabs, full undo/redo stack, and custom gradient styling.
-* **Export Engine:** Export clean, optimized **SVG**, high-DPI **PNG**, **JPG**, **WebP**, or native **React component (JSX/TSX)** code.
-
-### 🎬 2. iOS Video Playback Repair (`xprtix.com/video`)
-Diagnoses and repairs MP4/MOV videos that fail to play inline on iPhone, iPad, and Safari.
-* **Faststart Repair:** Custom-written client-side MP4 parser/rewriter relocates the `moov` atom header to the front of the file bit-for-bit without re-encoding.
-* **HEVC Tagging Fix:** Rewrites `hev1` container tags to `hvc1` in-browser for native Apple Media Source Extensions compatibility.
-* **Fallback Stream Re-Encoding:** Server fallback (capped at 50 MB) using FFmpeg re-encodes unsupported video codecs to H.264 and non-conforming audio to AAC.
-
-### 🖼️ 3. Image Processing & Format Engine (`xprtix.com/image`)
-Offloads image transformations to dedicated Web Workers to ensure a 60 FPS UI during heavy operations.
-* **Format Conversion:** Convert between **HEIC** (via `libheif` WebAssembly), **AVIF** (via custom WASM encoder), **WebP**, **PNG**, **JPEG**, **PDF**, and multi-size **ICO** favicons.
-* **Batch Operations:** Crop, scale, compress (via `fflate`), and package batch downloads into ZIP archives locally.
-* **Privacy Controls:** Strips EXIF metadata and GPS location information automatically prior to saving.
-
----
-
-## 🎯 Programmatic Quick Links (`Popular Tasks`)
-
-Jump directly to dedicated intent-matched conversion routes:
-
-| Utility | Task | Direct Route |
+| Tool | Route | What it does |
 | :--- | :--- | :--- |
-| 🖼️ Image | **HEIC → JPG** | [`xprtix.com/image/heic-to-jpg`](https://xprtix.com/image/heic-to-jpg) |
-| 🎨 SVG | **SVG → PNG** | [`xprtix.com/svg/svg-to-png`](https://xprtix.com/svg/svg-to-png) |
-| 🎬 Video | **MOV → MP4** | [`xprtix.com/video/mov-to-mp4`](https://xprtix.com/video/mov-to-mp4) |
-| 🖼️ Image | **PNG → WebP** | [`xprtix.com/image/png-to-webp`](https://xprtix.com/image/png-to-webp) |
-| 🖼️ Image | **Compress PNG** | [`xprtix.com/image/compress-png`](https://xprtix.com/image/compress-png) |
-| 🎨 SVG | **SVG → React Component** | [`xprtix.com/svg/svg-to-react`](https://xprtix.com/svg/svg-to-react) |
-| 🖼️ Image | **PNG → Favicon (ICO)** | [`xprtix.com/image/png-to-ico`](https://xprtix.com/image/png-to-ico) |
-| 🎬 Video | **Fix iPhone No-Sound Video** | [`xprtix.com/video/no-sound-on-iphone`](https://xprtix.com/video/no-sound-on-iphone) |
+| **XPRTIX Video** | [`/video`](https://xprtix.com/video) | Fix iPhone playback, compress, convert, trim, crop, extract audio, make GIFs |
+| **XPRTIX Image** | [`/image`](https://xprtix.com/image) | Convert, resize, crop and compress images, including HEIC |
+| **XPRTIX SVG** | [`/svg`](https://xprtix.com/svg) | Full-screen SVG editor with node editing and React export |
 
----
+## XPRTIX Video
 
-## 🔒 Security & Local Privacy Architecture
+- **iPhone fixes without re-encoding.** Moves the `moov` atom to the front (faststart) and rewrites the `hev1` tag to `hvc1`, copying the video bit for bit.
+- **Compress to a size.** 16 MB for WhatsApp, 25 MB for email, 10 MB for Discord, or any size you type. You can aim for a quality instead, cap the height or frame rate, and save presets.
+- **Convert.** MP4, MOV, M4V, MKV, WebM and AVI in; MP4, MOV, MKV or WebM out.
+- **Edit.** Trim, crop, rotate, flip and mute. These steps re-encode at high quality.
+- **Audio and GIF.** Save the sound as MP3, M4A or WAV, or up to 30 seconds as a looping GIF.
+- **Size.** Videos up to about 2 GB, limited by the browser's memory.
 
-1. **Local-First Executables:** Custom MP4 container rewriter, image converter Web Workers, and the SVG editor run completely client-side in your browser.
-2. **Transparent Fallback:** Files are uploaded to the Node backend only when a video requires a full FFmpeg stream re-encode (e.g., unsupported codecs/audio). Uploads are purged immediately after processing.
-3. **Anonymous Telemetry:** Minimal, non-identifying operational analytics from the Video and Image tools are sent to `api.xprtix.com` to monitor performance without user tracking.
+## XPRTIX Image
 
----
+- **Convert** HEIC, JPEG, PNG, WebP, AVIF, GIF and BMP to JPG, PNG, WebP, AVIF, PDF or ICO.
+- **Resize, crop, rotate and compress** one image or a whole folder, and save them all as one zip.
+- **Location data removed.** Saved copies leave out metadata such as camera details and GPS location.
 
-## ⚙️ Architecture & Tech Stack
+## XPRTIX SVG
 
-### Frontend (Browser)
-* **Core:** Vanilla HTML5, CSS3, and JavaScript (ES Modules) — zero UI frameworks.
-* **Routing:** Single HTML document with a hand-written SPA router for instant route switches (`/`, `/video`, `/image`, `/svg`).
-* **Design System:** Geist & Geist Mono (Google Fonts), tokenized CSS variables matching brand design specs.
-* **Vendored Libraries (`web/vendor/`):**
-  * `paper.js` — SVG path boolean operations, smoothing, and stroke outlining.
-  * `libheif` (WASM) — Client-side HEIC decoding.
-  * `AVIF encoder` (WASM) — Client-side AVIF encoding.
-  * `fflate` — Fast ZIP archive construction and PNG compression.
+- **Draw and reshape.** Pen, shapes, node editing, gradients and boolean operations, with undo for all of it.
+- **Organise.** Layers, several artboards per file, and one tab per document.
+- **Export.** Optimised SVG, PNG, JPG, WebP, a React (JSX) component or a CSS data URI, with a live preview and the file size before you save.
 
-### Backend (Server)
-* **Runtime:** Node.js 18+ with Express 4 (only 2 external dependencies).
-* **Media Server:** `multer` for multipart video uploads; `ffmpeg` + `ffprobe` for server-side H.264/AAC re-encoding.
-* **Dynamic SSR:** Generates route-specific HTML, programmatic landing pages, sitemap, and custom 404 views.
+## Popular tasks
 
-### Build, Test & CI/CD
-* **Bundler:** `esbuild` for minification and content-hashed production builds (`dist/`).
-* **Test Runner:** Native `node:test` test runner.
-* **Infrastructure:** Linux VPS running Nginx as a reverse proxy, SSL via Certbot (Let's Encrypt), and PM2 process management.
-* **Deployment:** Automated GitHub Actions workflow executing SSH deployment and PM2 reloads on pushes to `main`.
+| Task | Route |
+| :--- | :--- |
+| Fix hev1 video for iPhone | [`/video/hev1-to-hvc1`](https://xprtix.com/video/hev1-to-hvc1) |
+| Add faststart to an MP4 | [`/video/mp4-faststart`](https://xprtix.com/video/mp4-faststart) |
+| Compress a video for WhatsApp | [`/video/compress-video-for-whatsapp`](https://xprtix.com/video/compress-video-for-whatsapp) |
+| Turn a video into a GIF | [`/video/video-to-gif`](https://xprtix.com/video/video-to-gif) |
+| Convert MOV to MP4 | [`/video/mov-to-mp4`](https://xprtix.com/video/mov-to-mp4) |
+| Convert HEIC to JPG | [`/image/heic-to-jpg`](https://xprtix.com/image/heic-to-jpg) |
+| Convert PNG to WebP | [`/image/png-to-webp`](https://xprtix.com/image/png-to-webp) |
+| Make a favicon from a PNG | [`/image/png-to-ico`](https://xprtix.com/image/png-to-ico) |
+| Convert SVG to PNG | [`/svg/svg-to-png`](https://xprtix.com/svg/svg-to-png) |
+| Convert SVG to a React component | [`/svg/svg-to-react`](https://xprtix.com/svg/svg-to-react) |
 
----
+## Privacy
 
-## 👤 Author & Maintainer
+- **Files stay on the device.** Every tool processes files in the browser. Nothing is uploaded.
+- **Extra formats load once.** For formats the browser can't read itself (for example AC-3 audio, ProRes, AVI), a small FFmpeg build (about 3 MB) is downloaded the first time and runs locally.
+- **Anonymous usage data.** All three tools send anonymous usage records to `api.xprtix.com`: a random session id, the browser's user agent, the referring page, file names, sizes and formats, and what was done and whether it worked. The SVG editor sends only counts and choices. File contents are never sent. No cookies. Details: [xprtix.com/privacy](https://xprtix.com/privacy).
 
-Built with precision by **Moamen Sherif**:
+## How it's built
 
-* **Website:** [moamen-sherif.com](https://moamen-sherif.com)
-* **GitHub:** [@MoamenSherif81](https://github.com/MoamenSherif81)
-* **X (Twitter):** [@MoamenSherif81](https://x.com/MoamenSherif81)
-* **LinkedIn:** [Moamen Sherif](https://www.linkedin.com/in/moamen-sherif)
+**Browser**
+- Plain HTML, CSS and JavaScript modules. No UI framework.
+- Video: the browser's own codecs through [Mediabunny](https://mediabunny.dev/), plus a trimmed FFmpeg WebAssembly build only for formats the browser can't read.
+- Images: [libheif](https://github.com/strukturag/libheif) (WebAssembly) for HEIC, and [fflate](https://github.com/101arrowz/fflate) for zip files.
+- Type: Geist and Geist Mono, with design tokens from the XPRTIX brand guidelines.
 
----
+**Server**
+- Node.js 18+ and Express 4. Renders each route's HTML, the landing pages, the sitemap and the 404 page.
 
-## 📄 License
+**Build and deploy**
+- `esbuild` for minified, content-hashed bundles in `dist/`.
+- Tests with the built-in `node:test` runner.
+- Linux VPS: Nginx reverse proxy, Let's Encrypt via Certbot, PM2.
+- GitHub Actions deploys on every push to `main`, reloads PM2 and pings IndexNow.
 
-Copyright © 2026 XPRTIX / Moamen Sherif. All Rights Reserved.
+## Third-party software
 
-XPRTIX is a proprietary software platform. Unauthorized copying, modification, or redistribution of this repository's codebase is strictly prohibited.
+XPRTIX ships these components under their own licences:
+
+| Component | Licence | Used for |
+| :--- | :--- | :--- |
+| FFmpeg (with x264 and LAME) | GPL / LGPL | Converting formats the browser can't read |
+| Mediabunny | MPL-2.0 | Reading and writing video in the browser |
+| libheif | LGPL-3.0 | Decoding HEIC images |
+| fflate | MIT | Zip archives |
+
+The FFmpeg build scripts and the exact configuration are published at [LINK TO PUBLIC FFMPEG BUILD REPO], as the GPL requires.
+
+## Author
+
+Designed, built and maintained by **Moamen Sherif**.
+[moamen-sherif.com](https://moamen-sherif.com) · [GitHub](https://github.com/MoamenSherif81) · [X](https://x.com/MoamenSherif81) · [LinkedIn](https://www.linkedin.com/in/moamen-sherif)
+
+## Licence
+
+Copyright © 2026 Moamen Sherif. All rights reserved, except for the third-party components listed above, which keep their own licences.
 
 ---
 
 <div align="center">
 
-  **XPRTIX** (`/ˈɛks.pər.tɪks/`) — *Export and expert, in one word.*
+**XPRTIX** · /ˈɛks.pər.tɪks/ · Export and expert, in one word.
 
 </div>
